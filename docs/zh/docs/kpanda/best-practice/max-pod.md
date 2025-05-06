@@ -22,7 +22,7 @@ sysctl -w fs.inotify.max_user_instances=81920
 sysctl -w fs.inotify.max_queued_events=655360
 ```
 ### kubelet
-
+- /var/lib/kubelet/config.yaml
 ```
 - eventBurst: 100 #默认100
 - eventRecordQPS: 50 #默认50
@@ -32,6 +32,13 @@ sysctl -w fs.inotify.max_queued_events=655360
 - maxParallelImagePulls: 10 #最大并行拉取镜像数量，是作为提高创建Pod QPS
 
 ```
+给kubelet配置上资源预留，不让他注册到node上
+
+```
+kubeReserved: {cpu: "2", memory: "2Gi", ephemeral-storage: "10Gi"}
+systemReserved: {cpu: "2", memory: "2Gi", ephemeral-storage: "10Gi"}
+```
+
 ### Containerd
 
 ```
