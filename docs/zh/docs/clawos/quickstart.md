@@ -74,4 +74,4 @@ free -h
 
 ## OpenClaw 常见问题
 
-参阅[常见问题](./faq.md)文档。
+参阅[常见问题](./introduce/faq.md)文档。
